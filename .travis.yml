@@ -6,4 +6,4 @@ services:
   - docker
 
 script:
-  - make docker-test-image
+  - make docker-image-test
