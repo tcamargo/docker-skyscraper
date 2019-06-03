@@ -2,7 +2,8 @@ FROM archlinux/base:latest
 
 RUN pacman -Syu --noconfirm
 
-RUN pacman -S qt5-base base-devel wget p7zip --noconfirm
+RUN pacman -S qt5-base base-devel wget p7zip python nodejs npm --noconfirm
+RUN npm install -g romtool
 
 ENV HOME /root
 WORKDIR ${HOME}
