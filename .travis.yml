@@ -6,7 +6,7 @@ services:
   - docker
 
 script:
-  - make docker-image
-  - make docker-image-test
+  - make docker-image || travis_terminate 1
+  - make docker-image-test || travis_terminate 1
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push "$DOCKER_ORGANIZATION"/"$DOCKER_IMAGE"
