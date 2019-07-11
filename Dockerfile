@@ -2,7 +2,7 @@ FROM archlinux/base:latest
 
 RUN pacman -Syu --noconfirm
 
-RUN pacman -S qt5-base base-devel wget p7zip python nodejs npm --noconfirm
+RUN pacman -S qt5-base base-devel wget p7zip python nodejs npm mame --noconfirm
 RUN npm install -g romtool
 
 ENV HOME /root
@@ -20,6 +20,7 @@ VOLUME /roms
 VOLUME /config
 
 RUN ln -s /config $HOME/.skyscraper
+RUN ln -s /usr/bin/mame-chdman /usr/bin/chdman
 
 ENV LANG en_US.UTF-8
 
