@@ -22,6 +22,8 @@ VOLUME /config
 RUN ln -s /config $HOME/.skyscraper
 RUN ln -s /usr/bin/mame-chdman /usr/bin/chdman
 
+RUN /usr/share/wit/load-titles.sh
+
 ENV LANG en_US.UTF-8
 
 CMD ["/usr/bin/bash"]
