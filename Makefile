@@ -6,7 +6,8 @@ docker-image:
 	docker build -t $(DOCKER_ORGANIZATION)/$(DOCKER_IMAGE) .
 
 docker-image-test: docker-image
-	docker run --rm $(DOCKER_ORGANIZATION)/$(DOCKER_IMAGE) sh -c "Skyscraper -v && romtool --version"
+	docker run --rm $(DOCKER_ORGANIZATION)/$(DOCKER_IMAGE) \
+		sh -c "Skyscraper -v && romtool --version && wit --version && chdman | head -1"
 
 docker-push:
 	docker login -u $(DOCKER_USER)
