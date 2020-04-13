@@ -18,7 +18,6 @@ RUN chmod +x ${HOME}/build-ciso.sh && ./build-ciso.sh
 ADD bash_profile ${HOME}/.bash_profile
 
 RUN rm ${HOME}/build-skyscraper.sh
-RUN pacman -Scc --noconfirm
 
 VOLUME /roms
 VOLUME /config
