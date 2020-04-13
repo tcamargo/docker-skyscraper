@@ -2,7 +2,8 @@ FROM archlinux/base:latest
 
 RUN pacman -Sy archlinux-keyring --noconfirm
 
-RUN pacman -S qt5-base base-devel wget p7zip python nodejs npm mame wit --noconfirm
+RUN pacman -Syu qt5-base base-devel wget p7zip python nodejs npm mame wit --noconfirm && pacman -Scc --noconfirm
+
 RUN npm install -g romtool
 
 ENV HOME /root
