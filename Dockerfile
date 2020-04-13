@@ -15,9 +15,9 @@ RUN chmod +x ${HOME}/build-skyscraper.sh && ./build-skyscraper.sh
 ADD build-ciso.sh ${HOME}
 RUN chmod +x ${HOME}/build-ciso.sh && ./build-ciso.sh
 
-ADD bash_profile ${HOME}/.bash_profile
+RUN rm ${HOME}/build-skyscraper.sh && rm ${HOME}/build-ciso.sh
 
-RUN rm ${HOME}/build-skyscraper.sh
+ADD bash_profile ${HOME}/.bash_profile
 
 VOLUME /roms
 VOLUME /config
