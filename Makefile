@@ -10,7 +10,11 @@ docker-image-no-cache:
 
 docker-image-test: docker-image
 	docker run --rm $(DOCKER_ORGANIZATION)/$(DOCKER_IMAGE) \
-		sh -c "Skyscraper -v && romtool --version && wit --version && chdman | head -1 && ciso 2>&1 | head -1"
+		sh -c "Skyscraper -v && \
+			romtool --version && \
+			wit --version && \
+			chdman | head -1 && \
+			ciso 2>&1 | head -1"
 
 docker-push:
 	docker login -u $(DOCKER_USER)
