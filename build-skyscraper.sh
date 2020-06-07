@@ -27,4 +27,4 @@ sudo make install || handle_error "install"
 echo "--- Skyscraper has been updated ---"
 
 cd ${HOME}
-rm -rf skysource
+rm -rf skyscraper
