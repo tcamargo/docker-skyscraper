@@ -6,7 +6,7 @@ RUN pacman -Sy archlinux-keyring --noconfirm
 ADD add-aur.sh /usr/sbin/add-aur
 RUN add-aur docker
 
-RUN pacman -Syu qt5-base base-devel wget p7zip python nodejs npm mame wit --noconfirm && pacman -Scc --noconfirm
+RUN pacman -Su qt5-base base-devel wget p7zip python nodejs npm mame wit --noconfirm
 
 RUN npm install -g romtool
 
@@ -23,6 +23,8 @@ RUN su docker -c "yay -S --noprogressbar --needed --noconfirm nsz-git"
 
 RUN rm ${HOME}/build-skyscraper.sh && rm ${HOME}/build-ciso.sh
 
+RUN pacman -Scc --noconfirm
+
 ADD bash_profile ${HOME}/.bash_profile
 
 VOLUME /roms
@@ -31,7 +33,7 @@ VOLUME /config
 RUN ln -s /config $HOME/.skyscraper
 RUN ln -s /usr/bin/mame-chdman /usr/bin/chdman
 
-RUN /usr/share/wit/load-titles.sh && rm /tmp/titles-*
+# RUN /usr/share/wit/load-titles.sh && rm /tmp/titles-*
 
 ENV LANG en_US.UTF-8
 
