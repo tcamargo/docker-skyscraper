@@ -11,7 +11,7 @@ fi
 AUR_USER=$1
 
 # install yay deps
-pacman -Syyu git sudo pacman go --needed --noprogressbar --noconfirm
+pacman -S git sudo pacman go --needed --noprogressbar --noconfirm
 
 # create the user
 useradd -m $AUR_USER
@@ -30,7 +30,7 @@ echo "$AUR_USER      ALL = NOPASSWD: ALL" >> /etc/sudoers
 sed -i 's,#MAKEFLAGS="-j2",MAKEFLAGS="-j$(nproc)",g' /etc/makepkg.conf
 
 # don't compress the packages built here
-sed -i "s,PKGEXT='.pkg.tar.xz',PKGEXT='.pkg.tar',g" /etc/makepkg.conf
+sed -i "s,PKGEXT='.pkg.tar.zst',PKGEXT='.pkg.tar',g" /etc/makepkg.conf
 
 # install yay
 su $AUR_USER -c 'cd; git clone https://aur.archlinux.org/yay.git'
