@@ -11,8 +11,7 @@ docker-image-no-cache:
 docker-image-test: docker-image
 	docker run --rm $(DOCKER_ORGANIZATION)/$(DOCKER_IMAGE) \
 		sh -c "Skyscraper -v && \
-			romtool --version && \
-			wit --version && \
+			romtool --version  && \
 			chdman | head -1 && \
 			ciso 2>&1 | head -1"
 
