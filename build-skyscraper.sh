@@ -14,7 +14,7 @@ handle_error () {
 }
 
 echo "--- Fetching Skyscraper ---"
-git clone https://github.com/muldjord/skyscraper.git
+git clone --depth 1 https://github.com/muldjord/skyscraper.git
 cd skyscraper
 echo "--- Cleaning out old build if one exists ---"
 make --ignore-errors clean
