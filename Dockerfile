@@ -24,7 +24,7 @@ VOLUME /config
 RUN ln -s /config $HOME/.skyscraper
 RUN ln -s /usr/bin/mame-chdman /usr/bin/chdman
 
-RUN /usr/share/wit/load-titles.sh && rm /tmp/titles-*
+# RUN /usr/share/wit/load-titles.sh && rm /tmp/titles-*
 
 ENV LANG en_US.UTF-8
 ENV HOME /root
