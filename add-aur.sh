@@ -45,3 +45,5 @@ su $AUR_USER -c 'yay -Syyu --noprogressbar --noconfirm --needed'
 
 echo "Packages from the AUR can now be installed like this:"
 echo "su $AUR_USER -c 'yay -S --needed --noprogressbar --needed --noconfirm PACKAGE'"
+
+pacman -Scc --noconfirm
