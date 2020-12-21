@@ -19,11 +19,17 @@ RUN rm ./build-skyscraper.sh;  rm ./build-ciso.sh
 # RUN su docker -c "yay -S --noprogressbar --needed --noconfirm nsz-git"
 
 VOLUME /roms
+VOLUME /config
 
 RUN ln -s /usr/bin/mame-chdman /usr/bin/chdman
 
 # RUN /usr/share/wit/load-titles.sh && rm /tmp/titles-*
 
 ENV LANG en_US.UTF-8
+
+RUN mkdir /user 
+ENV HOME "/user"
+RUN ln -s /config ${HOME}/.skyscraper
+WORKDIR ${HOME}
 
 CMD ["/usr/bin/bash"]
